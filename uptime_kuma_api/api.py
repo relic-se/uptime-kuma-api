@@ -2016,9 +2016,9 @@ class UptimeKumaApi(object):
 
         data = {
             **config,
-            "incident": r2["incident"],
-            "publicGroupList": r2["publicGroupList"],
-            "maintenanceList": r2["maintenanceList"]
+            "incident": r2["incident"] if "incident" in r2 else "",
+            "publicGroupList": r2["publicGroupList"] if "publicGroupList" in r2 else "",
+            "maintenanceList": r2["maintenanceList"] if "maintenanceList" in r2 else ""
         }
         parse_incident_style(data["incident"])
         # convert sendUrl from int to bool
